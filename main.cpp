@@ -1223,8 +1223,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	input = new Input();
 	input->Initialize(wc.hInstance,hwnd);
 
+	//入力の更新
+	input->Updata();
 
-	BYTE key[256] = {};
 	BYTE prekey[256] = {};
 
 
@@ -1242,12 +1243,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 			//ゲームの処理
 
-			//キーボード情報の取得開始
-			keyboard->Acquire();
-
 			memcpy(prekey, key, 256);
-
-			keyboard->GetDeviceState(sizeof(key), key);
 
 			if (key[DIK_SPACE] && !prekey[DIK_SPACE])
 			{
