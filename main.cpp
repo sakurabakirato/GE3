@@ -1223,11 +1223,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	input = new Input();
 	input->Initialize(wc.hInstance,hwnd);
 
-	//入力の更新
-	input->Updata();
-
-	BYTE prekey[256] = {};
-
 
 	MSG msg{};
 	//ウィンドウの×ボタンが押されるまでループ
@@ -1243,11 +1238,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 			//ゲームの処理
 
-			memcpy(prekey, key, 256);
 
-			if (key[DIK_SPACE] && !prekey[DIK_SPACE])
+			//入力の更新
+			input->Update();
+
+			if (input->TriggerKey(DIK_SPACE))
 			{
-				OutputDebugStringA("Press Space\n");
+				OutputDebugStringA("Hit 0\n");
 			}
 
 			//Sprite用のWorldViewProjectionMatrixを作る
@@ -1389,8 +1386,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	}
 
-	//入力解放
-	delete input;
 
 	//変数から型を推測する
 
@@ -1460,6 +1455,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	}
 
 	CoUninitialize();
+
+	//入力解放
+	delete input;
 
 	return 0;
 }
