@@ -1,4 +1,5 @@
 #pragma once
+#include "WinApp.h"
 #include <Windows.h>
 #include <wrl.h>
 
@@ -13,7 +14,7 @@ public://メンバ変数
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
 
 		//初期化
-		void Initialize(HINSTANCE hInstance,HWND hwnd);
+		void Initialize(WinApp* winApp);
 		//更新
 		void Update();
 
@@ -43,6 +44,9 @@ private:
 	BYTE key[256] = {};
 
 	BYTE prekey[256] = {};
+
+	//WindowsAPI
+	WinApp* winApp_ = nullptr;
 
 };
 
