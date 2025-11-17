@@ -1349,8 +1349,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		}
 
+		//ゲームループを抜ける
 		break;
-		//ゲームループをぬける
 	}
 
 
