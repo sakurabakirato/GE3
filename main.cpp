@@ -1198,12 +1198,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	while (true) 
 	{
 		//Windowにメッセージが来てたら最優先で処理させる
-		if (winApp->ProcessMessage()) 
-		{
-			//ゲームループを抜ける
-			break;
-		} 
-		else 
+		if (!winApp->ProcessMessage()) 
 		{
 #pragma endregion WindowAPIを利用したメッセージの受信と処理ここまで
 			//ゲームの処理
