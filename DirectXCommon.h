@@ -11,6 +11,32 @@ class DirectXCommon
 public:
 	//初期化
 	void Initialize(WinApp* winApp);
+	
+	//デバイスの生成
+	void CreateDevice();
+
+	//コマンド周りの生成
+	void CreateCommand();
+
+	//スワップチェインの生成
+	void CreateSwapChain();
+
+	//ディスクリプタヒープの生成
+	void CreateDescriptor();
+
+	//DSVの生成
+	void CreateDSV();
+
+	//RTVの生成
+	void CreateRTV();
+
+	//Fenceの生成
+	void CreateFence();
+
+	//深度バッファの生成
+	void CreateDepth();
+
+
 	//描画開始
 	void PreDraw();
 	//描画終了
