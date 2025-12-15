@@ -9,6 +9,5 @@ namespace StringUtility
 
 	//wstringをstringに変換する
 	std::string ConvertString(const std::wstring& str);
-
 };
 
